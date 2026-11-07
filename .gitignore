@@ -1,0 +1,88 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+*.ipch
+*.VC.db
+*.VC.db-shm
+*.VC.db-wal
+*.VC.opendb
+*.vsidx
+*.sdf
+*.opensdf
+
+# Directorios de compilación
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Bb]uild/
+[Bb]uild-*/
+cmake-build-*/
+
+# Archivos compilados / intermedios
+*.o
+*.obj
+*.slo
+*.lo
+*.d
+*.gch
+*.pch
+*.ilk
+*.pdb
+*.idb
+*.tlog
+*.recipe
+*.lastbuildstate
+*.iobj
+*.ipdb
+*.res
+*.dt.d.json
+*.module.json
+*.module.json.command
+
+# Librerías
+*.so
+*.so.*
+*.dylib
+*.dll
+*.a
+*.lib
+*.lai
+*.la
+
+# Ejecutables
+*.exe
+*.out
+*.app
+
+# Fortran (plantilla original)
+*.mod
+*.smod
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+compile_commands.json
+
+# Temporales y logs
+*.tmp
+*.log
+*.bak
+*.swp
+
+# vcpkg
+vcpkg_installed/
+
+# Debug info
+*.dwo
+
+# Tests y caché
+Testing/
+.cache/

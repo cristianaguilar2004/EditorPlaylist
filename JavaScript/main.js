@@ -80,6 +80,39 @@ class PilaEstática {
 	}
 }
 
+class PilaDinámica {
+	constructor() {
+		this.elementos = [];
+	}
+
+	push(elemento) {
+		this.elementos.push(elemento);
+		return true;
+	}
+
+	pop() {
+		if (!this.estáVacia()) {
+			return this.elementos.pop();
+		}
+		return null;
+	}
+
+	peek() {
+		if (!this.estáVacia()) {
+			return this.elementos[this.elementos.length - 1];
+		}
+		return null;
+	}
+
+	estáVacia() {
+		return this.elementos.length === 0;
+	}
+
+	tamaño() {
+		return this.elementos.length;
+	}
+}
+
 function prebarP1(canciones) {
 	console.log("\n--- Prueba P1: PilaEstática con Canciones ---");
 	const pila = new PilaEstática(5);
@@ -118,6 +151,40 @@ function prebarP1(canciones) {
 	}
 }
 
+function pruebaP1la(canciones) {
+	console.log("\n--- Prueba P1la: PilaDinámica con Canciones ---");
+	const pila = new PilaDinámica();
+
+	// Paso 1: Meter las tres primeras canciones y mostrar tamaño y peek
+	console.log("\n1. Metiendo las tres primeras canciones...");
+	for (let i = 0; i < 3; i++) {
+		pila.push(canciones[i]);
+		console.log(`   Agregada: ${canciones[i].titulo}`);
+	}
+	console.log(`   Tamaño: ${pila.tamaño()}`);
+	console.log(`   Peek (tope): ${pila.peek().titulo}`);
+
+	// Paso 2: Agregar la cuarta canción (sin límite en pila dinámica)
+	console.log("\n2. Agregando la cuarta canción...");
+	pila.push(canciones[3]);
+	console.log(`   Agregada: ${canciones[3].titulo}`);
+	console.log(`   Tamaño: ${pila.tamaño()}`);
+
+	// Paso 3: Sacar todas con un ciclo while
+	console.log("\n3. Sacando todas las canciones con pop()...");
+	while (!pila.estáVacia()) {
+		const cancion = pila.pop();
+		console.log(`   Sacada: ${cancion.titulo}`);
+	}
+
+	// Paso 4: Intentar sacar una más
+	console.log("\n4. Intentando sacar de pila vacía...");
+	const resultado = pila.pop();
+	if (resultado === null) {
+		console.log(`   Error Pila vacía: no hay que sacar`);
+	}
+}
+
 
 function main() {
 	const canciones = [
@@ -134,8 +201,11 @@ function main() {
 	});
 	console.log(`Duracion: ${canciones[0].formatoTiempo(album.duraciontotal())}`);
 
-	// Ejecutar prebarP1
+	// Ejecutar prebarP1 (Pila Estática)
 	prebarP1(canciones);
+
+	// Ejecutar pruebaP1la (Pila Dinámica)
+	pruebaP1la(canciones);
 }
 
 main();

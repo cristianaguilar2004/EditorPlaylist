@@ -80,6 +80,39 @@ class PilaEstática {
 	}
 }
 
+class PilaDinámica {
+	constructor() {
+		this.elementos = [];
+	}
+
+	push(elemento) {
+		this.elementos.push(elemento);
+		return true;
+	}
+
+	pop() {
+		if (!this.estáVacia()) {
+			return this.elementos.pop();
+		}
+		return null;
+	}
+
+	peek() {
+		if (!this.estáVacia()) {
+			return this.elementos[this.elementos.length - 1];
+		}
+		return null;
+	}
+
+	estáVacia() {
+		return this.elementos.length === 0;
+	}
+
+	tamaño() {
+		return this.elementos.length;
+	}
+}
+
 class EditorPlaylist {
 	constructor() {
 		this.playlist = [];
@@ -110,7 +143,7 @@ class EditorPlaylist {
 		return true;
 	}
 
-	deshacer() {
+	deshacerAccion() {
 		if (this.deshacer.estáVacia()) {
 			console.log(`   Error: No hay acciones para deshacer`);
 			return;
@@ -125,7 +158,7 @@ class EditorPlaylist {
 		}
 	}
 
-	rehacer() {
+	rehacerAccion() {
 		if (this.rehacer.estáVacia()) {
 			console.log(`   Error: No hay acciones para rehacer`);
 			return;
@@ -264,12 +297,12 @@ function pruebaP4(canciones) {
 
 	// Paso 5: deshacer
 	console.log("\nPaso 5: deshacer");
-	editor.deshacer();
+	editor.deshacerAccion();
 	editor.mostrar();
 
 	// Paso 6: deshacer
 	console.log("\nPaso 6: deshacer");
-	editor.deshacer();
+	editor.deshacerAccion();
 	editor.mostrar();
 
 	// Paso 7: eliminar(1)
@@ -279,27 +312,27 @@ function pruebaP4(canciones) {
 
 	// Paso 8: rehacer
 	console.log("\nPaso 8: rehacer");
-	editor.rehacer();
+	editor.rehacerAccion();
 	editor.mostrar();
 
 	// Paso 9: deshacer
 	console.log("\nPaso 9: deshacer");
-	editor.deshacer();
+	editor.deshacerAccion();
 	editor.mostrar();
 
 	// Paso 10: deshacer
 	console.log("\nPaso 10: deshacer");
-	editor.deshacer();
+	editor.deshacerAccion();
 	editor.mostrar();
 
 	// Paso 11: deshacer
 	console.log("\nPaso 11: deshacer");
-	editor.deshacer();
+	editor.deshacerAccion();
 	editor.mostrar();
 
 	// Paso 12: deshacer
 	console.log("\nPaso 12: deshacer");
-	editor.deshacer();
+	editor.deshacerAccion();
 	editor.mostrar();
 
 	// Paso 13: agregar canción 4
